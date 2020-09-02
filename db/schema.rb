@@ -13,8 +13,19 @@
 ActiveRecord::Schema.define(version: 2020_09_02_030810) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "age", null: false
+    t.integer "gender", null: false
+    t.string "hobby"
+    t.date "birthday", null: false
+    t.string "postal_code", default: "", null: false
+    t.integer "prefecture", null: false
+    t.string "city", default: "", null: false
+    t.string "house_number", default: "", null: false
+    t.string "building_name", default: "", null: false
+    t.string "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
