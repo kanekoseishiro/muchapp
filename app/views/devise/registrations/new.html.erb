@@ -46,6 +46,52 @@
     <tr>
       <div class="form-group">
         <th><div class='form-text-wrap'>
+          <label class="form-text">年齢</label>
+          <span class="indispensable">必須</span>
+        </div></th>
+        <td class="form-content"><%= f.text_field :age, class:"input-default", id:"age", placeholder:"例) 20" %><span>歳</span></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">性別</label>
+          <span class="indispensable">必須</span>
+        </div></th>
+        <td class="form-content"><%= f.collection_select(:gender, Gender.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %></td>
+      </div>
+    </tr>
+    <tr>
+      <th><div class='form-text-wrap'>
+        <label class="form-text">生年月日</label>
+        <span class="indispensable">必須</span>
+      </div></th>
+      <td><div class='input-birth-wrap'>
+        <%= raw sprintf(
+                    f.date_select(
+                      :birthday,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: 1930,
+                      end_year: (Time.now.year - 5),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div></td>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">趣味</label>
+          <span class="form-any">任意</span>
+        </div></th>
+        <td class="form-content"><%= f.text_field :hobby, class:"input-default", id:"hobby", placeholder:"例) 読書" %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
           <label class="form-text">郵便番号</label>
           <span class="form-any">任意</span>
         </div></th>
