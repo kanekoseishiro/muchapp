@@ -1,6 +1,14 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  
+  with_options presence: true do
+    validates :nickname, length: { maximum: 20 }
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }, length: { minimum: 6 }
+    validates :prefecture, numericality: { other_than: 1 }
+    validates :phone_number, length: { maximum: 11 }
+    validates :age, format: { with:/[0-9]\d/ }
+    validates :gender, numericality: { other_than: 1 }
+    validates :birthday
+  end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
