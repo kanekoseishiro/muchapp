@@ -1,9 +1,10 @@
 <div class="registration-header">
-  <h1>新規登録</h1>
+  <%= link_to "新規登録", root_path, class:"devise_header" %>
 </div>
 
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
   <table border="1" class="form-table">
     <tr>
       <div class="form-group">
@@ -11,7 +12,7 @@
           <label class="form-text">ニックネーム</label>
           <span class="indispensable">必須</span>
         </div></th>
-        <td class="form-content"><%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %></td>
+        <td class="form-content"><%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) 抹茶プリン", maxlength:"40" %></td>
       </div>
     </tr>
     <tr>
