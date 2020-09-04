@@ -1,0 +1,36 @@
+<div class="registration-header">
+  <%= link_to "会員ログイン", users_path, class:"devise_header" %>
+</div>
+
+<div class="main">
+  <%= form_with model: @user, url: new_user_session_path, class: 'registration-main', local: true do |f| %>
+    <table border="1" class="form-table">
+      <tr>
+        <div class="form-group">
+          <th><div class='form-text-wrap'>
+            <label class="form-text">メールアドレス</label>
+            <span class="indispensable">必須</span>
+          </div></th>
+          <td class="form-content"><%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><div class='form-text-wrap'>
+            <label class="form-text">パスワード</label>
+            <span class="indispensable">必須</span>
+          </div></th>
+          <td class="form-content"><%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %></td>
+        </div>
+      </tr>
+    </table>
+
+    <div class='register-btn'>
+      <%= f.submit "ログイン", class:"register-red-btn" %>
+    </div>
+  <% end %>
+
+  <div class='register-btn'>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
