@@ -1,5 +1,5 @@
 <div class="registration-header">
-  <%= link_to "新規登録", users_path, class:"devise_header" %>
+  <%= link_to "新規登録", members_path, class:"devise_header" %>
 </div>
 
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>

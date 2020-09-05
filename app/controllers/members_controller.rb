@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :move_to_members, only: [:index]
 
   def index
-    # @user = user.all
+    @member = User.all
   end
 
   def top

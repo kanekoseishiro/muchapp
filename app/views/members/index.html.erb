@@ -18,4 +18,16 @@
   <div class="member-contents">
     <h2 class='title'>ピックアップ</h2>
   </div>
+  <ul class='member-lists'>
+    <% @member.each do |member| %>
+      <li class='list'>
+        <div class='member-img-content'>
+          <%= image_tag member.image, class: "member-img" %>
+        </div>
+        <div class='member-info'>
+          <%= member.nickname %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </main>

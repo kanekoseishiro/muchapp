@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_scope :user do
-    get '/members/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
   devise_for :users
   root "members#index"
