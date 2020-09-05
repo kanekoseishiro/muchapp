@@ -46,6 +46,15 @@
     <tr>
       <div class="form-group">
         <th><div class='form-text-wrap'>
+          <label class="form-text">顔写真</label>
+          <span class="indispensable">必須</span>
+        </div></th>
+        <td class="form-content"><%= f.file_field :image, id:"item-image" %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
           <label class="form-text">年齢</label>
           <span class="indispensable">必須</span>
         </div></th>
