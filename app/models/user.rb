@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :image
   
   with_options presence: true do
     validates :nickname, length: { maximum: 20 }
