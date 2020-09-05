@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/members/sign_out' => 'devise/sessions#destroy'
   end
   devise_for :users
-  root "users#index"
-  get 'users', to: 'users#member'
+  root "members#index"
+  get 'members', to: 'members#top'
   # resources :users, only: :index
 end
