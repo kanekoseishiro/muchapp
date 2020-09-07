@@ -1,0 +1,22 @@
+<header class='show-header'>
+  <div class='search-bar-contents'>
+    <%= link_to "MUCHUP", "/", class:"much-icon" %>
+  </div>
+</div>
+
+<div class="show-main">
+  <div class='form-wrap'>
+    <%= image_tag @user.image, class: "current-member-img" %>
+
+    <h3>ユーザー名</h3>
+    <%= @user.nickname %>
+    <h3>年齢</h3>
+    <span><%= @user.age %>歳</span>
+    <h3>出身地</h3>
+    <%= Prefecture.find(@user.prefecture).name %>
+    <h3>自己紹介</h3>
+    (自己紹介文が入る)
+
+    <%= link_to "プロフィール編集", edit_user_registration_path, class: "a" %>
+  </div>
+</div>

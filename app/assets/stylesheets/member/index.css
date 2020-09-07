@@ -1,5 +1,8 @@
+.member-main {
+  background-color: #fffaf0;
+}
+
 .member-contents {
-  background-color: #FFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +20,6 @@
 .member-lists>.list {
   width: 37vh;
   padding: 1vw;
-  background-color: #FFF;
 }
 
 .member-img-content {
@@ -30,7 +32,6 @@
 }
 
 .member-info {
-  background-color: #FFF;
   color: black;
   padding: 1vw;
 }

@@ -2,7 +2,12 @@ class MembersController < ApplicationController
   before_action :move_to_members, only: [:index]
 
   def index
-    @member = User.all
+    @members = User.where.not(id: current_user.id).order("created_at DESC")
+    @member = current_user
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def top
@@ -12,7 +17,7 @@ class MembersController < ApplicationController
 
   def move_to_members
     unless user_signed_in?
-      redirect_to mambers_path
+      redirect_to members_path
     end
   end
 end
