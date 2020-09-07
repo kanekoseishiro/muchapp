@@ -1,79 +1,37 @@
-* {
-  box-sizing: border-box;
+.member-main {
+  background-color: #fffaf0;
 }
 
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
+.member-contents {
   display: flex;
   flex-direction: column;
-}
-
-.search-bar-contents {
-  display: flex;
   align-items: center;
+  padding: 10vh 0;
 }
 
-.much-icon {
-  width: 10vw;
-  margin-right: 10vw;
-  text-decoration: none;
-  color: black;
-}
-
-.search-form {
-  width: 65vw;
-  max-width: 500px;
-  height: 5vh;
+.member-lists {
+  width: 100vw;
   display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-}
-
-.search-icon {
-  width: 100%;
-}
-
-.lists {
-  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
-  align-items: flex-end;
 }
 
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
+.member-lists>.list {
+  width: 37vh;
+  padding: 1vw;
 }
 
-
-.logout {
-  text-decoration: none;
-  color: #333333;
+.member-img-content {
+  position: relative;
 }
 
-.login {
-  text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
+.member-img {
+  width: 33vh;
+  height: 33vh;
 }
 
-.sign-up {
-  text-decoration: none;
-  color: #333333;
+.member-info {
+  color: black;
+  padding: 1vw;
 }

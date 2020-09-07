@@ -1,43 +1,46 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="registration-header">
+  <%= link_to "プロフィール編集", root_path, class:"devise_header" %>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <table border="1" class="form-table">
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">ニックネーム</label>
+        </div></th>
+        <td class="form-content"><%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) 抹茶プリン", maxlength:"40" %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">顔写真</label>
+        </div></th>
+        <td class="form-content"><%= f.file_field :image, id:"item-image" %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">趣味</label>
+        </div></th>
+        <td class="form-content"><%= f.text_field :hobby, class:"input-default", id:"hobby", placeholder:"例) 読書" %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">居住地</label>
+        </div></th>
+        <td class="form-content"><%= f.collection_select(:prefecture, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %></td>
+      </div>
+    </tr>
+  </table>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class='register-btn'>
+    <%= f.submit "プロフィール変更" ,class:"register-red-btn" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

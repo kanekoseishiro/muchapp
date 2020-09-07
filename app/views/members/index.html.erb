@@ -9,13 +9,27 @@
     </form>
   </div>
   <ul class='lists'>
-    <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+    <li><%= link_to current_user.nickname, member_path(@member), class: "user-nickname" %></li>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
   </ul>
 </header>
 
-<main>
+<div class="member-main">
   <div class="member-contents">
     <h2 class='title'>ピックアップ</h2>
   </div>
+  <ul class='member-lists'>
+    <% @members.each do |member| %>
+      <li class='list'>
+        <%= link_to member_path(member) do %>
+          <div class='member-img-content'>
+            <%= image_tag member.image, class: "member-img" %>
+          </div>
+          <div class='member-info'>
+            <%= member.nickname %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </main>
