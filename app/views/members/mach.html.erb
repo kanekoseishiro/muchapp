@@ -1,0 +1,20 @@
+<header class='show-header'>
+  <div class='show-header-contents'>
+    <%= link_to "MUCHUP", "/", class:"much-icon" %>
+  </div>
+</div>
+
+<div class="member-main">
+  <ul class='member-lists'>
+    <% @mach.each do |user| %>
+      <li class='list'>
+        <div class='member-img-content'>
+          <%= image_tag user.image, class: "member-img" %>
+        </div>
+        <div class='member-info'>
+          <%= user.nickname %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
