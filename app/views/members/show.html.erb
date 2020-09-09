@@ -1,5 +1,5 @@
 <header class='show-header'>
-  <div class='search-bar-contents'>
+  <div class='show-header-contents'>
     <%= link_to "MUCHUP", "/", class:"much-icon" %>
   </div>
 </div>
@@ -8,15 +8,67 @@
   <div class='form-wrap'>
     <%= image_tag @user.image, class: "current-member-img" %>
 
-    <h3>ユーザー名</h3>
-    <%= @user.nickname %>
-    <h3>年齢</h3>
-    <span><%= @user.age %>歳</span>
-    <h3>出身地</h3>
-    <%= Prefecture.find(@user.prefecture).name %>
-    <h3>自己紹介</h3>
-    (自己紹介文が入る)
+    <table border="1" class="form-table">
+      <tr>
+        <div class="form-group">
+          <th class="a"><h3>ユーザー名</h3></th>
+          <td class="b"><%= @user.nickname %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th class="a"><h3>年齢</h3></th>
+          <td class="b"><span><%= @user.age %>歳</span></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th class="a"><h3>出身地</h3></th>
+          <td class="b"><%= Prefecture.find(@user.prefecture).name %></td>
+        <div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th class="a"><h3>趣味</h3></th>
+          <% unless @user.hobby.blank? %>
+            <td class="b"><%= @user.hobby %></td>
+          <% else %>
+            <td class="b">未設定</td>
+          <% end %>
+        </div>
+      </tr>
+    </table>
+    <div class="profile">
+      <h3>自己紹介</h3>
+      <% unless @user.profile.blank? %>
+        <%= @user.profile %>
+      <% else %>
+        <p>はじめまして</p>
+      <% end %>
+    </div>
 
-    <%= link_to "プロフィール編集", edit_user_registration_path, class: "a" %>
+    <% if @user.id == current_user.id %>
+      <%= link_to "プロフィール編集", edit_user_registration_path, class: "c" %>
+      <%= link_to "フォロー(#{@user.followings.count})", following_member_path, class: "nav-link" %>
+      <%= link_to "フォロワー(#{@user.followers.count})", follower_member_path, class: "nav-link" %>
+      <%= link_to "マッチ", mach_member_path, class: "nav-link" %>
+    <% end %>
+
+    <% if @user != current_user%>
+      <div id="follow_form">
+        <% unless current_user.following?(@user) %>
+          <%= form_with(model: current_user.following_relationships.build) do |f| %>
+            <%= f.hidden_field :following_id, value: @user.id %>
+            <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+          <% end %>
+        <% else %>
+          <%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id),method: :delete) do |f| %>
+            <%= f.hidden_field :following_id %>  
+            <%= f.submit "フォロー外す", class: "btn btn-outline-secondary" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>

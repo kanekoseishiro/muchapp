@@ -1,0 +1,23 @@
+<header class='show-header'>
+  <div class='show-header-contents'>
+    <%= link_to "MUCHUP", "/", class:"much-icon" %>
+  </div>
+</div>
+
+<div class="following-main">
+  <h1>フォロー一覧</h1>
+  <ul class='member-lists'>
+    <% User.find(params[:id]).followings.each do |follow| %>
+      <li class='list'>
+        <%= link_to member_path(follow) do %>
+          <div class='member-img-content'>
+            <%= image_tag follow.image, class: "member-img" %>
+          </div>
+          <div class='member-info'>
+            <%= follow.nickname %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

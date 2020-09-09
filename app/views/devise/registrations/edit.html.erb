@@ -5,7 +5,7 @@
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <table border="1" class="form-table">
+  <table class="form-table">
     <tr>
       <div class="form-group">
         <th><div class='form-text-wrap'>
@@ -36,6 +36,14 @@
           <label class="form-text">居住地</label>
         </div></th>
         <td class="form-content"><%= f.collection_select(:prefecture, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="form-group">
+        <th><div class='form-text-wrap'>
+          <label class="form-text">プロフィール</label>
+        </div></th>
+        <td class="form-content"><%= f.text_area :profile, class:"input-default", id:"hobby" %></td>
       </div>
     </tr>
   </table>
