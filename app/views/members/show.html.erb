@@ -4,32 +4,32 @@
   <div class='form-wrap'>
     <%= image_tag @user.image, class: "current-member-img" %>
 
-    <table border="1" class="form-table">
+    <table border="1" class="show-form-table">
       <tr>
         <div class="form-group">
-          <th class="a"><h3>ユーザー名</h3></th>
-          <td class="b"><%= @user.nickname %></td>
+          <th class="show-title"><h3>ユーザー名</h3></th>
+          <td class="show-profile"><%= @user.nickname %></td>
         </div>
       </tr>
       <tr>
         <div class="form-group">
-          <th class="a"><h3>年齢</h3></th>
-          <td class="b"><span><%= @user.age %>歳</span></td>
+          <th class="show-title"><h3>年齢</h3></th>
+          <td class="show-profile"><span><%= @user.age %>歳</span></td>
         </div>
       </tr>
       <tr>
         <div class="form-group">
-          <th class="a"><h3>出身地</h3></th>
-          <td class="b"><%= Prefecture.find(@user.prefecture).name %></td>
+          <th class="show-title"><h3>出身地</h3></th>
+          <td class="show-profile"><%= Prefecture.find(@user.prefecture).name %></td>
         <div>
       </tr>
       <tr>
         <div class="form-group">
-          <th class="a"><h3>趣味</h3></th>
+          <th class="show-title"><h3>趣味</h3></th>
           <% unless @user.hobby.blank? %>
-            <td class="b"><%= @user.hobby %></td>
+            <td class="show-profile"><%= @user.hobby %></td>
           <% else %>
-            <td class="b">未設定</td>
+            <td class="show-profile">未設定</td>
           <% end %>
         </div>
       </tr>
@@ -44,10 +44,10 @@
     </div>
 
     <% if @user.id == current_user.id %>
-      <%= link_to "プロフィール編集", edit_user_registration_path, class: "c" %>
-      <%= link_to "フォロー(#{@user.followings.count})", following_member_path, class: "nav-link" %>
-      <%= link_to "フォロワー(#{@user.followers.count})", follower_member_path, class: "nav-link" %>
-      <%= link_to "マッチ", mach_member_path, class: "nav-link" %>
+      <%= link_to "プロフィール編集", edit_user_registration_path, class: "profile-link btn btn--orange btn--radius" %>
+      <%= link_to "フォロー(#{@user.followings.count})", following_member_path, class: "profile-link btn btn--blue btn--radius" %>
+      <%= link_to "フォロワー(#{@user.followers.count})", follower_member_path, class: "profile-link btn btn--blue btn--radius" %>
+      <%= link_to "トーク", mach_member_path, class: "mach-link btn btn-border" %>
     <% end %>
 
     <% if @user != current_user%>
@@ -55,12 +55,12 @@
         <% unless current_user.following?(@user) %>
           <%= form_with(model: current_user.following_relationships.build) do |f| %>
             <%= f.hidden_field :following_id, value: @user.id %>
-            <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+            <%= f.submit "フォローする", class: "btn btn--blue" %>
           <% end %>
         <% else %>
           <%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id),method: :delete) do |f| %>
             <%= f.hidden_field :following_id %>  
-            <%= f.submit "フォロー外す", class: "btn btn-outline-secondary" %>
+            <%= f.submit "フォロー済", class: "btn btn--glay" %>
           <% end %>
         <% end %>
       </div>
