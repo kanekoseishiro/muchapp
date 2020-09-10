@@ -1,8 +1,15 @@
-.show-header-contents {
+.header {
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  flex-direction: column;
+  background-color: #afeeee;
+}
+
+.header-contents {
+  font-size: 30px;
+  margin-left: 120px;
 }
 
 .much-icon {

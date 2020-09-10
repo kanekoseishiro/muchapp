@@ -1,4 +1,3 @@
-
 .show-main {
   width: 100%;
   min-width: 800px;
@@ -36,15 +35,21 @@
   width: 33vw;
 }
 
+.show-title h3 {
+  margin-bottom: 20px;
+}
+
 .show-profile {
   border-style: none;
   width: 33vw;
+  font-size: 18px;
 }
 
 .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 30px;
 }
 
 .profile h3 {
