@@ -1,7 +1,9 @@
 <%= render "shared/header"%>
 
-<div class="following-main">
-  <h1>フォロワー一覧</h1>
+<div class="member-mach-main">
+  <div class="member-mach-contents">
+    <h2 class='mach-title'>フォロワー一覧</h2>
+  </div>
   <ul class='member-lists'>
     <% User.find(params[:id]).followers.each do |follow| %>
       <li class='list'>
