@@ -1,3 +1,151 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  height: 100vh;
+  display: flex;
+}
+
+.side-bar {
+  width: 300px;
+  background-color: #253141;
+}
+
+.chat {
+  width: calc(100vw - 300px);
+  background-color: #ffffff;
+}
+
+.side-header {
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-name a {
+  font-size: 16px;
+  color: #fafafa;
+  text-decoration: none;
+}
+
+.create-room {
+  font-size: 10px;
+}
+
+.create-room a {
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.rooms {
+  height: calc(100vh - 100px);
+  background-color: #2f3e51;
+  padding: 0 40px;
+  overflow: scroll;
+}
+
+.room {
+  padding: 20px 0 40px;
+}
+
+.room-name a {
+  text-decoration: none;
+  color: white;
+}
+
+.top-chat {
+  height: 100px;
+  padding: 0 40px 46px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-room-name {
+  margin-top: 36px;
+  font-size: 24px;
+  color: #333;
+}
+
+.edit-chat {
+  margin-top: 40px;
+}
+
+.edit-chat a {
+  color: darkred;
+  text-decoration: none;
+  border: 1px solid darkred;
+  padding: 20px;
+}
+
+.messages {
+  background-color: #FAFAFA;
+  height: calc(100vh - 100px - 90px);
+  padding: 46px 40px 0;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+.message {
+  margin: 10px 0;
+}
+
+.upper-message{
+  display: flex;
+}
+
+.message-user {
+  color: #434a54;
+  font-size: 16px;
+}
+
+.lower-message {
+  margin-top: 10px;
+}
+
+.message-content {
+  color: #434a54;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.form{
+  height: 90px;
+  background-color: #dddddd;
+  padding: 20px 40px;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.form-input {
+  background-color: white;
+  display: flex;
+  width: 100%;
+}
+
+.form-message {
+  border: none;
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.form-submit {
+  background-color: #38AEF0;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 50px;
+  margin-left: 15px;
+  padding: 0 20px;
+}
+
+.form-image {
+  background-color: lightblue;
+  font-size: 12px;
+  color: white;
+  padding: 12px;
+  width: 60px;
+  margin: 5px 10px;
+  text-align: center;
+}
