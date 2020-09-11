@@ -1,3 +1,11 @@
+.match-icon {
+  font-size: 30px;
+  width: 10vw;
+  margin-right: 10vw;
+  text-decoration: none;
+  color: black;
+}
+
 .title {
   line-height: 60px;
   position: relative;
@@ -34,6 +42,41 @@
 .title span {
   position: relative;
   display: block;
+}
+
+.lists {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.member-nickname {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 0 65px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+.member-nickname:before,
+.member-nickname:after {
+  position: absolute;
+  top: calc(50% - 3px);
+  width: 30px;
+  height: 6px;
+  content: '';
+  border-top: solid 2px #000;
+  border-bottom: solid 2px #000;
+}
+
+.member-nickname:before {
+  left: 0;
+}
+
+.member-nickname:after {
+  right: 0;
 }
 
 .member-main {

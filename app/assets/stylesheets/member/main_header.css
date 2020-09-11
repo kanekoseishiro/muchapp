@@ -15,13 +15,6 @@
   align-items: center;
 }
 
-.much-icon {
-  width: 10vw;
-  margin-right: 10vw;
-  text-decoration: none;
-  color: black;
-}
-
 .search-form {
   width: 65vw;
   max-width: 500px;
