@@ -1,3 +1,84 @@
+.match-icon {
+  font-size: 30px;
+  width: 10vw;
+  margin-right: 10vw;
+  text-decoration: none;
+  color: black;
+}
+
+.title {
+  line-height: 60px;
+  position: relative;
+  height: 60px;
+  margin: 2em 50px 1em;
+  padding: 0 2rem;
+  text-align: center;
+  color: #fff;
+  background: #fa4141;
+}
+
+.title:before,
+.title:after {
+  position: absolute;
+  top: 0;
+  display: block;
+  height: 48px;
+  content: '';
+  border: 30px solid #fa4141;
+}
+
+.title:before {
+  left: -40px;
+  border-left-width: 15px;
+  border-left-color: transparent;
+}
+
+.title:after {
+  right: -40px;
+  border-right-width: 15px;
+  border-right-color: transparent;
+}
+
+.title span {
+  position: relative;
+  display: block;
+}
+
+.lists {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.member-nickname {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 0 65px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+.member-nickname:before,
+.member-nickname:after {
+  position: absolute;
+  top: calc(50% - 3px);
+  width: 30px;
+  height: 6px;
+  content: '';
+  border-top: solid 2px #000;
+  border-bottom: solid 2px #000;
+}
+
+.member-nickname:before {
+  left: 0;
+}
+
+.member-nickname:after {
+  right: 0;
+}
+
 .member-main {
   background-color: #fffaf0;
   height: 100vh;
@@ -7,7 +88,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  padding-bottom: 10vh;
 }
 
 .member-lists {
