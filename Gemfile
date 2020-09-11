@@ -63,3 +63,7 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+
+group :production do
+  gem 'rails_12factor'
+end
